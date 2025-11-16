@@ -53,19 +53,33 @@ public class WebAutomationAdvancePage {
     @FindBy(id = "apply-discount-btn")
     WebElement applyDiscount_id;
 
-    public WebAutomationAdvancePage(WebDriver driver){
-        this.driver=driver;
+    @FindBy(id = "pricing-breakdown-title")
+    WebElement pricingBreakdownTitle_id;
+
+    @FindBy(id = "inventory-back-btn")
+    WebElement inventoryBackButton_id;
+
+    @FindBy(id = "add-to-cart-btn")
+    WebElement addToCartButton_id;
+
+    @FindBy(id = "cart-item-decrease-1763283388955.4653")
+    WebElement cartItemDecrease_id;
+
+
+    public WebAutomationAdvancePage(WebDriver driver) {
+        this.driver = driver;
     }
 
-    public void verifyInventoryHeaderIsDisplayed(){
+    public void verifyInventoryHeaderIsDisplayed() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(inventoryHeader_id));
         inventoryHeader_id.isDisplayed();
     }
-    public void selectDeviceType(String deviceType){
+
+    public void selectDeviceType(String deviceType) {
         deviceTypeDropDown_id.sendKeys(deviceType);
     }
 
-    public void selectTabletBrand(String deviceBrand){
+    public void selectTabletBrand(String deviceBrand) {
         tabletBrand_id.sendKeys(deviceBrand);
     }
 
@@ -73,40 +87,57 @@ public class WebAutomationAdvancePage {
         color_id.sendKeys(color);
     }
 
-    public void selectStorage(){
+    public void selectStorage() {
         storage_id.click();
     }
 
-    public void selectQuantity(String quantity){
+    public void selectQuantity(String quantity) {
         quantity_id.sendKeys(quantity);
     }
-    public void enterDeliveryAddress(String address){
+
+    public void enterDeliveryAddress(String address) {
         deliveryAddress_id.sendKeys(address);
     }
 
-    public void clickNextButton(){
+    public void clickNextButton() {
         nextButton_id.click();
     }
 
-    public void verifyDeviceSummaryTitleIsDisplayed(){
+    public void verifyDeviceSummaryTitleIsDisplayed() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(deviceSummaryTitle_id));
         deviceSummaryTitle_id.isDisplayed();
     }
 
-    public void selectShippingExpress(){
+    public void selectShippingExpress() {
         shippingExpress_id.click();
     }
 
-    public void selectWarranty(){
+    public void selectWarranty() {
         warranty_id.click();
     }
 
-    public void enterDiscountCode(String discountCode){
+    public void enterDiscountCode(String discountCode) {
         discountCode_id.sendKeys(discountCode);
     }
-    public void clickApplyDiscount(){
+
+    public void clickApplyDiscount() {
         applyDiscount_id.click();
     }
 
+    public void verifyPriceBreakdownTitleIsDisplayed(){
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(pricingBreakdownTitle_id));
+        pricingBreakdownTitle_id.isDisplayed();
+    }
 
+    public void clickInventoryBackButton(){
+        inventoryBackButton_id.click();
+    }
+
+    public void clickAddToCartButton(){
+        addToCartButton_id.click();
+    }
+
+//    public void clickCartItemDecrease(){
+//        cartItemDecrease_id.click();
+//    }
 }

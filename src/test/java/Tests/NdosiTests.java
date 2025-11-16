@@ -73,7 +73,7 @@ public class NdosiTests extends Base{
 
     @Test(dependsOnMethods = "selectStorageTest")
     public void selectQuantityTest() throws InterruptedException {
-        webAutomationAdvancePage.selectQuantity("+3");
+        webAutomationAdvancePage.selectQuantity("+2");
         Thread.sleep(2000);
     }
     @Test(dependsOnMethods = "selectQuantityTest")
@@ -105,9 +105,40 @@ public class NdosiTests extends Base{
     }
 
     @Test(dependsOnMethods = "enterDiscountCodeTest")
-    public void clickApplyDiscountTest(){
+    public void clickApplyDiscountTest() throws InterruptedException {
        webAutomationAdvancePage.clickApplyDiscount();
+        Thread.sleep(1000);
     }
+
+    @Test(dependsOnMethods = "clickApplyDiscountTest")
+    public void verifyPriceBreakdownTitleIsDisplayedTest() throws InterruptedException {
+        webAutomationAdvancePage.verifyPriceBreakdownTitleIsDisplayed();
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "verifyPriceBreakdownTitleIsDisplayedTest")
+    public void clickInventoryBackButtonTest() throws InterruptedException {
+        webAutomationAdvancePage.clickInventoryBackButton();
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "clickInventoryBackButtonTest")
+    public void clickNextButton2Test() throws InterruptedException {
+        webAutomationAdvancePage.clickNextButton();
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "clickNextButton2Test")
+    public void clickAddToCartButtonTest() throws InterruptedException {
+        webAutomationAdvancePage.clickAddToCartButton();
+        Thread.sleep(4000);
+    }
+
+//    @Test(dependsOnMethods = "clickAddToCartButtonTest")
+//    public void clickCartItemDecreaseTest() throws InterruptedException {
+//        webAutomationAdvancePage.clickCartItemDecrease();
+//        Thread.sleep(4000);
+//    }
 
     @AfterTest
     public void closeBrowser(){
