@@ -6,10 +6,10 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 @Test
-public class NdosiTests extends Base{
+public class NdosiTests extends Base {
 
 
-    public void verifyHomePageIsDisplayedTests(){
+    public void verifyHomePageIsDisplayedTests() {
 
         homePage.verifyHomePageIsDisplayed();
     }
@@ -21,7 +21,7 @@ public class NdosiTests extends Base{
     }
 
     @Test(dependsOnMethods = "clickLearningMaterialTests")
-    public void enterLoginEmailTest(){
+    public void enterLoginEmailTest() {
         loginPage.enterLoginEmail(readFromFile.username);
     }
 
@@ -43,18 +43,18 @@ public class NdosiTests extends Base{
     @Test(dependsOnMethods = "verifyWelcomeHeading")
     public void clickWebAutomationAdvanceTab() throws InterruptedException {
         learningMaterialPage.clickWebAutomationAdvanceTab();
-      Thread.sleep(2000);
+        Thread.sleep(2000);
     }
 
     @Test(dependsOnMethods = "clickWebAutomationAdvanceTab")
-    public void verifyWebAutomationAdvancePageIsDisplayedTest(){
+    public void verifyWebAutomationAdvancePageIsDisplayedTest() {
         webAutomationAdvancePage.verifyInventoryHeaderIsDisplayed();
     }
 
     @Test(dependsOnMethods = "verifyWebAutomationAdvancePageIsDisplayedTest")
     public void selectDeviceTypeTest() throws InterruptedException {
-      webAutomationAdvancePage.selectDeviceType("Tablet");
-      Thread.sleep(2000);
+        webAutomationAdvancePage.selectDeviceType("Tablet");
+        Thread.sleep(2000);
     }
 
     @Test(dependsOnMethods = "selectDeviceTypeTest")
@@ -64,12 +64,12 @@ public class NdosiTests extends Base{
     }
 
     @Test(dependsOnMethods = "selectDeviceBrandTest")
-    public void selectColorTest(){
+    public void selectColorTest() {
         webAutomationAdvancePage.selectColor("blue");
     }
 
-   @Test(dependsOnMethods = "selectColorTest")
-    public void selectStorage128Test(){
+    @Test(dependsOnMethods = "selectColorTest")
+    public void selectStorage128Test() {
         webAutomationAdvancePage.selectStorage128();
     }
 
@@ -78,37 +78,40 @@ public class NdosiTests extends Base{
         webAutomationAdvancePage.selectQuantity("+2");
         Thread.sleep(2000);
     }
+
     @Test(dependsOnMethods = "selectQuantityTest")
-    public void enterDeliveryAddressTest(){
+    public void enterDeliveryAddressTest() {
         webAutomationAdvancePage.enterDeliveryAddress("27 Parklands Main, Cape Town");
     }
+
     @Test(dependsOnMethods = "enterDeliveryAddressTest")
-    public void clickNextButtonTest(){
+    public void clickNextButtonTest() {
         webAutomationAdvancePage.clickNextButton();
     }
 
     @Test(dependsOnMethods = "clickNextButtonTest")
-    public void verifyDeviceSummaryTitleIsDisplayedTest(){
+    public void verifyDeviceSummaryTitleIsDisplayedTest() {
         webAutomationAdvancePage.verifyDeviceSummaryTitleIsDisplayed();
     }
+
     @Test(dependsOnMethods = "verifyDeviceSummaryTitleIsDisplayedTest")
-    public void selectShippingExpressTest(){
+    public void selectShippingExpressTest() {
         webAutomationAdvancePage.selectShippingExpress();
     }
 
     @Test(dependsOnMethods = "selectShippingExpressTest")
-    public void selectWarrantyTest(){
+    public void selectWarrantyTest() {
         webAutomationAdvancePage.selectWarranty();
     }
 
     @Test(dependsOnMethods = "selectWarrantyTest")
-    public void enterDiscountCodeTest(){
+    public void enterDiscountCodeTest() {
         webAutomationAdvancePage.enterDiscountCode("SAVE10");
     }
 
     @Test(dependsOnMethods = "enterDiscountCodeTest")
     public void clickApplyDiscountTest() throws InterruptedException {
-       webAutomationAdvancePage.clickApplyDiscount();
+        webAutomationAdvancePage.clickApplyDiscount();
         Thread.sleep(1000);
     }
 
@@ -156,7 +159,7 @@ public class NdosiTests extends Base{
     }
 
     @Test(dependsOnMethods = "selectLaptopBrandTest")
-    public void selectStorage256Test(){
+    public void selectStorage256Test() {
         webAutomationAdvancePage.selectStorage256();
     }
 
@@ -173,7 +176,7 @@ public class NdosiTests extends Base{
     }
 
     @Test(dependsOnMethods = "selectQuantitySecondItemTest")
-    public void enterDeliveryAddressSecondItemTest(){
+    public void enterDeliveryAddressSecondItemTest() {
         webAutomationAdvancePage.enterDeliveryAddress("27 Parklands Main, Cape Town");
     }
 
@@ -184,12 +187,57 @@ public class NdosiTests extends Base{
     }
 
     @Test(dependsOnMethods = "clickNextButtonSecondItemTest")
-    public void verifyDeviceSummaryTitleIsDisplayedSecondItemTest(){
+    public void verifyDeviceSummaryTitleIsDisplayedSecondItemTest() {
         webAutomationAdvancePage.verifyDeviceSummaryTitleIsDisplayed();
     }
 
+    @Test(dependsOnMethods = "verifyDeviceSummaryTitleIsDisplayedSecondItemTest")
+    public void selectShippingStandardTest() {
+        webAutomationAdvancePage.selectShippingStandard();
+    }
+
+    @Test(dependsOnMethods = "selectShippingStandardTest")
+    public void selectWarrantyNoneTest() {
+        webAutomationAdvancePage.selectWarrantyNone();
+    }
+
+    @Test(dependsOnMethods = "selectWarrantyNoneTest")
+    public void enterDiscountCodeSecondItemTest() {
+        webAutomationAdvancePage.enterDiscountCode("SAVE20");
+
+    }
+
+    @Test(dependsOnMethods = "enterDiscountCodeSecondItemTest")
+    public void clickApplyDiscountSecondItemTest() throws InterruptedException {
+        webAutomationAdvancePage.clickApplyDiscount();
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "clickApplyDiscountSecondItemTest")
+    public void clickAddToCartButtonSecondItemTest() throws InterruptedException {
+        webAutomationAdvancePage.clickAddToCartButton();
+        Thread.sleep(4000);
+    }
+
+    @Test(dependsOnMethods = "clickAddToCartButtonSecondItemTest")
+    public void clickReviewCartButtonTest(){
+        webAutomationAdvancePage.clickReviewCartButton();
+    }
+    @Test(dependsOnMethods = "clickReviewCartButtonTest")
+    public void clickPlaceOrderButtonTest(){
+        webAutomationAdvancePage.clickPlaceOrderButton();
+    }
+    @Test(dependsOnMethods = "clickPlaceOrderButtonTest")
+    public void clickViewInvoiceButtonTest() throws InterruptedException {
+        webAutomationAdvancePage.clickViewInvoiceButton();
+        Thread.sleep(3000);
+    }
+//    @Test(dependsOnMethods = "clickViewInvoiceButtonTest")
+//    public void clickActualViewInvoiceTest(){
+//        webAutomationAdvancePage.clickActualViewInvoice();
+//    }
     @AfterTest
-    public void closeBrowser(){
+    public void closeBrowser() {
         driver.quit();
     }
 }

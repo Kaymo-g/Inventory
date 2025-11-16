@@ -47,6 +47,12 @@ public class WebAutomationAdvancePage {
     @FindBy(id = "shipping-express")
     WebElement shippingExpress_id;
 
+    @FindBy(id = "shipping-standard")
+    WebElement shippingStandard_id;
+
+    @FindBy(id = "warranty-none")
+    WebElement warrantyNone_id;
+
     @FindBy(id = "warranty-1yr")
     WebElement warranty_id;
 
@@ -64,6 +70,18 @@ public class WebAutomationAdvancePage {
 
     @FindBy(id = "add-to-cart-btn")
     WebElement addToCartButton_id;
+
+    @FindBy(id = "review-cart-btn")
+    WebElement reviewCartButton_id;
+
+    @FindBy(id = "confirm-cart-btn")
+    WebElement placeOrderButton_id;
+
+    @FindBy(id = "view-history-btn")
+    WebElement viewInvoiceButton_id;
+
+    @FindBy(id = "view-invoice-INV-1763308420441")
+    WebElement viewActualInvoice_id;
 
     @FindBy(id = "cart-item-decrease-1763283388955.4653")
     WebElement cartItemDecrease_id;
@@ -123,8 +141,16 @@ public class WebAutomationAdvancePage {
         shippingExpress_id.click();
     }
 
+    public void selectShippingStandard() {
+        shippingStandard_id.click();
+    }
+
     public void selectWarranty() {
         warranty_id.click();
+    }
+
+    public void selectWarrantyNone() {
+        warrantyNone_id.click();
     }
 
     public void enterDiscountCode(String discountCode) {
@@ -147,6 +173,21 @@ public class WebAutomationAdvancePage {
     public void clickAddToCartButton() {
         addToCartButton_id.click();
     }
+
+    public void clickReviewCartButton() {
+        reviewCartButton_id.click();
+    }
+
+    public void clickPlaceOrderButton() {
+        placeOrderButton_id.click();
+    }
+    public void clickViewInvoiceButton() {
+        viewInvoiceButton_id.click();
+    }
+//    public void clickActualViewInvoice() {
+//        viewActualInvoice_id.click();
+//    }
+
 
 //    public void clickCartItemDecrease(){
 //        cartItemDecrease_id.click();
