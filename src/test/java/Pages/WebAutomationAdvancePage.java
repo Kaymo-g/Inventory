@@ -21,13 +21,16 @@ public class WebAutomationAdvancePage {
     WebElement deviceTypeDropDown_id;
 
     @FindBy(id = "brand")
-    WebElement tabletBrand_id;
+    WebElement brand_id;
 
     @FindBy(id = "color")
     WebElement color_id;
 
     @FindBy(id = "storage-128GB")
-    WebElement storage_id;
+    WebElement storage128_id;
+
+    @FindBy(id = "storage-256GB")
+    WebElement storage256_id;
 
     @FindBy(id = "quantity")
     WebElement quantity_id;
@@ -80,15 +83,23 @@ public class WebAutomationAdvancePage {
     }
 
     public void selectTabletBrand(String deviceBrand) {
-        tabletBrand_id.sendKeys(deviceBrand);
+        brand_id.sendKeys(deviceBrand);
+    }
+
+    public void selectLaptopBrand(String laptopBrand) {
+        brand_id.sendKeys(laptopBrand);
     }
 
     public void selectColor(String color) {
         color_id.sendKeys(color);
     }
 
-    public void selectStorage() {
-        storage_id.click();
+    public void selectStorage128() {
+        storage128_id.click();
+    }
+
+    public void selectStorage256() {
+        storage256_id.click();
     }
 
     public void selectQuantity(String quantity) {
@@ -124,16 +135,16 @@ public class WebAutomationAdvancePage {
         applyDiscount_id.click();
     }
 
-    public void verifyPriceBreakdownTitleIsDisplayed(){
+    public void verifyPriceBreakdownTitleIsDisplayed() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(pricingBreakdownTitle_id));
         pricingBreakdownTitle_id.isDisplayed();
     }
 
-    public void clickInventoryBackButton(){
+    public void clickInventoryBackButton() {
         inventoryBackButton_id.click();
     }
 
-    public void clickAddToCartButton(){
+    public void clickAddToCartButton() {
         addToCartButton_id.click();
     }
 

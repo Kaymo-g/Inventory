@@ -10,8 +10,10 @@ public class NdosiTests extends Base{
 
 
     public void verifyHomePageIsDisplayedTests(){
+
         homePage.verifyHomePageIsDisplayed();
     }
+
     @Test(dependsOnMethods = "verifyHomePageIsDisplayedTests")
     public void clickLearningMaterialTests() {
         homePage.clickLearningMaterial();
@@ -19,11 +21,11 @@ public class NdosiTests extends Base{
     }
 
     @Test(dependsOnMethods = "clickLearningMaterialTests")
-    public void enterLoginEmail(){
+    public void enterLoginEmailTest(){
         loginPage.enterLoginEmail(readFromFile.username);
     }
 
-    @Test(dependsOnMethods = "enterLoginEmail")
+    @Test(dependsOnMethods = "enterLoginEmailTest")
     public void enterPasswordTests() {
         loginPage.enterPasswordId(readFromFile.password);
     }
@@ -67,11 +69,11 @@ public class NdosiTests extends Base{
     }
 
    @Test(dependsOnMethods = "selectColorTest")
-    public void selectStorageTest(){
-        webAutomationAdvancePage.selectStorage();
+    public void selectStorage128Test(){
+        webAutomationAdvancePage.selectStorage128();
     }
 
-    @Test(dependsOnMethods = "selectStorageTest")
+    @Test(dependsOnMethods = "selectStorage128Test")
     public void selectQuantityTest() throws InterruptedException {
         webAutomationAdvancePage.selectQuantity("+2");
         Thread.sleep(2000);
@@ -113,6 +115,7 @@ public class NdosiTests extends Base{
     @Test(dependsOnMethods = "clickApplyDiscountTest")
     public void verifyPriceBreakdownTitleIsDisplayedTest() throws InterruptedException {
         webAutomationAdvancePage.verifyPriceBreakdownTitleIsDisplayed();
+        takeScreenshots.takesSnapShot(driver, "Price Breakdown");
         Thread.sleep(2000);
     }
 
@@ -131,7 +134,7 @@ public class NdosiTests extends Base{
     @Test(dependsOnMethods = "clickNextButton2Test")
     public void clickAddToCartButtonTest() throws InterruptedException {
         webAutomationAdvancePage.clickAddToCartButton();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
     }
 
 //    @Test(dependsOnMethods = "clickAddToCartButtonTest")
@@ -139,6 +142,51 @@ public class NdosiTests extends Base{
 //        webAutomationAdvancePage.clickCartItemDecrease();
 //        Thread.sleep(4000);
 //    }
+
+    @Test(dependsOnMethods = "clickAddToCartButtonTest")
+    public void selectDeviceTypeLaptopTest() throws InterruptedException {
+        webAutomationAdvancePage.selectDeviceType("laptop");
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "selectDeviceTypeLaptopTest")
+    public void selectLaptopBrandTest() throws InterruptedException {
+        webAutomationAdvancePage.selectLaptopBrand("macbook pro");
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "selectLaptopBrandTest")
+    public void selectStorage256Test(){
+        webAutomationAdvancePage.selectStorage256();
+    }
+
+    @Test(dependsOnMethods = "selectStorage256Test")
+    public void selectColorGoldTest() throws InterruptedException {
+        webAutomationAdvancePage.selectColor("gold");
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "selectColorGoldTest")
+    public void selectQuantitySecondItemTest() throws InterruptedException {
+        webAutomationAdvancePage.selectQuantity("+1");
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "selectQuantitySecondItemTest")
+    public void enterDeliveryAddressSecondItemTest(){
+        webAutomationAdvancePage.enterDeliveryAddress("27 Parklands Main, Cape Town");
+    }
+
+    @Test(dependsOnMethods = "enterDeliveryAddressSecondItemTest")
+    public void clickNextButtonSecondItemTest() throws InterruptedException {
+        webAutomationAdvancePage.clickNextButton();
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "clickNextButtonSecondItemTest")
+    public void verifyDeviceSummaryTitleIsDisplayedSecondItemTest(){
+        webAutomationAdvancePage.verifyDeviceSummaryTitleIsDisplayed();
+    }
 
     @AfterTest
     public void closeBrowser(){
