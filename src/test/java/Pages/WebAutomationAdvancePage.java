@@ -23,6 +23,36 @@ public class WebAutomationAdvancePage {
     @FindBy(id = "brand")
     WebElement tabletBrand_id;
 
+    @FindBy(id = "color")
+    WebElement color_id;
+
+    @FindBy(id = "storage-128GB")
+    WebElement storage_id;
+
+    @FindBy(id = "quantity")
+    WebElement quantity_id;
+
+    @FindBy(id = "address")
+    WebElement deliveryAddress_id;
+
+    @FindBy(id = "inventory-next-btn")
+    WebElement nextButton_id;
+
+    @FindBy(id = "device-summary-title")
+    WebElement deviceSummaryTitle_id;
+
+    @FindBy(id = "shipping-express")
+    WebElement shippingExpress_id;
+
+    @FindBy(id = "warranty-1yr")
+    WebElement warranty_id;
+
+    @FindBy(id = "discount-code")
+    WebElement discountCode_id;
+
+    @FindBy(id = "apply-discount-btn")
+    WebElement applyDiscount_id;
+
     public WebAutomationAdvancePage(WebDriver driver){
         this.driver=driver;
     }
@@ -39,11 +69,44 @@ public class WebAutomationAdvancePage {
         tabletBrand_id.sendKeys(deviceBrand);
     }
 
+    public void selectColor(String color) {
+        color_id.sendKeys(color);
+    }
 
+    public void selectStorage(){
+        storage_id.click();
+    }
 
+    public void selectQuantity(String quantity){
+        quantity_id.sendKeys(quantity);
+    }
+    public void enterDeliveryAddress(String address){
+        deliveryAddress_id.sendKeys(address);
+    }
 
+    public void clickNextButton(){
+        nextButton_id.click();
+    }
 
+    public void verifyDeviceSummaryTitleIsDisplayed(){
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(visibilityOf(deviceSummaryTitle_id));
+        deviceSummaryTitle_id.isDisplayed();
+    }
 
+    public void selectShippingExpress(){
+        shippingExpress_id.click();
+    }
+
+    public void selectWarranty(){
+        warranty_id.click();
+    }
+
+    public void enterDiscountCode(String discountCode){
+        discountCode_id.sendKeys(discountCode);
+    }
+    public void clickApplyDiscount(){
+        applyDiscount_id.click();
+    }
 
 
 }

@@ -52,14 +52,63 @@ public class NdosiTests extends Base{
     @Test(dependsOnMethods = "verifyWebAutomationAdvancePageIsDisplayedTest")
     public void selectDeviceTypeTest() throws InterruptedException {
       webAutomationAdvancePage.selectDeviceType("Tablet");
-      Thread.sleep(4000);
+      Thread.sleep(2000);
     }
 
     @Test(dependsOnMethods = "selectDeviceTypeTest")
     public void selectDeviceBrandTest() throws InterruptedException {
         webAutomationAdvancePage.selectTabletBrand("Samsung");
-        Thread.sleep(4000);
+        Thread.sleep(2000);
     }
+
+    @Test(dependsOnMethods = "selectDeviceBrandTest")
+    public void selectColorTest(){
+        webAutomationAdvancePage.selectColor("blue");
+    }
+
+   @Test(dependsOnMethods = "selectColorTest")
+    public void selectStorageTest(){
+        webAutomationAdvancePage.selectStorage();
+    }
+
+    @Test(dependsOnMethods = "selectStorageTest")
+    public void selectQuantityTest() throws InterruptedException {
+        webAutomationAdvancePage.selectQuantity("+3");
+        Thread.sleep(2000);
+    }
+    @Test(dependsOnMethods = "selectQuantityTest")
+    public void enterDeliveryAddressTest(){
+        webAutomationAdvancePage.enterDeliveryAddress("27 Parklands Main, Cape Town");
+    }
+    @Test(dependsOnMethods = "enterDeliveryAddressTest")
+    public void clickNextButtonTest(){
+        webAutomationAdvancePage.clickNextButton();
+    }
+
+    @Test(dependsOnMethods = "clickNextButtonTest")
+    public void verifyDeviceSummaryTitleIsDisplayedTest(){
+        webAutomationAdvancePage.verifyDeviceSummaryTitleIsDisplayed();
+    }
+    @Test(dependsOnMethods = "verifyDeviceSummaryTitleIsDisplayedTest")
+    public void selectShippingExpressTest(){
+        webAutomationAdvancePage.selectShippingExpress();
+    }
+
+    @Test(dependsOnMethods = "selectShippingExpressTest")
+    public void selectWarrantyTest(){
+        webAutomationAdvancePage.selectWarranty();
+    }
+
+    @Test(dependsOnMethods = "selectWarrantyTest")
+    public void enterDiscountCodeTest(){
+        webAutomationAdvancePage.enterDiscountCode("SAVE10");
+    }
+
+    @Test(dependsOnMethods = "enterDiscountCodeTest")
+    public void clickApplyDiscountTest(){
+       webAutomationAdvancePage.clickApplyDiscount();
+    }
+
     @AfterTest
     public void closeBrowser(){
         driver.quit();
