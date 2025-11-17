@@ -238,6 +238,68 @@ public class NdosiTests extends Base {
         Thread.sleep(3000);
     }
 
+    @Test(dependsOnMethods = "clickCloseInvoiceHistoryTest")
+    public void selectDeviceTypeValidationTest() throws InterruptedException {
+        validationPage.selectDeviceType("Tablet");
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "selectDeviceTypeValidationTest")
+    public void selectDeviceBrandValidationTest() throws InterruptedException {
+        validationPage.selectTabletBrand("Samsung");
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "selectDeviceBrandValidationTest")
+    public void selectColorValidationTest() {
+        validationPage.selectColor("blue");
+    }
+
+    @Test(dependsOnMethods = "selectColorValidationTest")
+    public void selectStorage128ValidationTest() {
+        validationPage.selectStorage128();
+    }
+
+    @Test(dependsOnMethods = "selectStorage128ValidationTest")
+    public void selectQuantityValidationTest() throws InterruptedException {
+        validationPage.selectQuantity("0");
+        Thread.sleep(4000);
+    }
+
+    @Test(dependsOnMethods = "selectQuantityValidationTest")
+    public void enterDeliveryAddressValidationTest() {
+        validationPage.enterDeliveryAddress("27 Parklands Main, Cape Town");
+    }
+
+    @Test(dependsOnMethods = "enterDeliveryAddressValidationTest")
+    public void clickNextButtonValidationTest() throws InterruptedException {
+        validationPage.clickNextButton();
+        Thread.sleep(4000);
+    }
+
+    @Test(dependsOnMethods = "clickNextButtonValidationTest")
+    public void selectQuantityValidation11Test() throws InterruptedException {
+        validationPage.selectQuantity("11");
+        Thread.sleep(4000);
+    }
+
+    @Test(dependsOnMethods = "selectQuantityValidation11Test")
+    public void clickNextButtonValidation11Test() throws InterruptedException {
+        validationPage.clickNextButton();
+        Thread.sleep(4000);
+    }
+
+    @Test(dependsOnMethods = "clickNextButtonValidation11Test")
+    public void selectQuantityValidationCorrectTest() throws InterruptedException {
+        validationPage.selectQuantity("3");
+        Thread.sleep(4000);
+    }
+    @Test(dependsOnMethods = "selectQuantityValidationCorrectTest")
+    public void clickNextButtonValidationCorrectTest() throws InterruptedException {
+        validationPage.clickNextButton();
+        Thread.sleep(4000);
+    }
+
     @AfterTest
     public void closeBrowser() {
         driver.quit();

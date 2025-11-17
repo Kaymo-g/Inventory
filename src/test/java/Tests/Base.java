@@ -1,9 +1,6 @@
 package Tests;
 
-import Pages.HomePage;
-import Pages.LearningMaterialPage;
-import Pages.LoginPage;
-import Pages.WebAutomationAdvancePage;
+import Pages.*;
 import Utils.BrowserFactory;
 import Utils.ReadFromFile;
 import Utils.TakeScreenshots;
@@ -21,5 +18,6 @@ public class Base {
     WebAutomationAdvancePage webAutomationAdvancePage = PageFactory.initElements(driver, WebAutomationAdvancePage.class);
     TakeScreenshots takeScreenshots = new TakeScreenshots();
     ReadFromFile readFromFile = new ReadFromFile();
+    ValidationPage validationPage = PageFactory.initElements(driver, ValidationPage.class);
 
 }
