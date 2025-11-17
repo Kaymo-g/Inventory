@@ -80,8 +80,8 @@ public class WebAutomationAdvancePage {
     @FindBy(id = "view-history-btn")
     WebElement viewInvoiceButton_id;
 
-    @FindBy(id = "view-invoice-INV-1763308420441")
-    WebElement viewActualInvoice_id;
+    @FindBy(id = "close-invoice-history-btn")
+    WebElement closeInvoiceHistory_id;
 
     @FindBy(id = "cart-item-decrease-1763283388955.4653")
     WebElement cartItemDecrease_id;
@@ -121,6 +121,7 @@ public class WebAutomationAdvancePage {
     }
 
     public void selectQuantity(String quantity) {
+        quantity_id.clear();
         quantity_id.sendKeys(quantity);
     }
 
@@ -184,9 +185,9 @@ public class WebAutomationAdvancePage {
     public void clickViewInvoiceButton() {
         viewInvoiceButton_id.click();
     }
-//    public void clickActualViewInvoice() {
-//        viewActualInvoice_id.click();
-//    }
+    public void clickCloseInvoiceHistory() {
+        closeInvoiceHistory_id.click();
+    }
 
 
 //    public void clickCartItemDecrease(){

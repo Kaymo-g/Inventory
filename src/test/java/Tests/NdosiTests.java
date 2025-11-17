@@ -75,7 +75,7 @@ public class NdosiTests extends Base {
 
     @Test(dependsOnMethods = "selectStorage128Test")
     public void selectQuantityTest() throws InterruptedException {
-        webAutomationAdvancePage.selectQuantity("+2");
+        webAutomationAdvancePage.selectQuantity("2");
         Thread.sleep(2000);
     }
 
@@ -171,7 +171,7 @@ public class NdosiTests extends Base {
 
     @Test(dependsOnMethods = "selectColorGoldTest")
     public void selectQuantitySecondItemTest() throws InterruptedException {
-        webAutomationAdvancePage.selectQuantity("+1");
+        webAutomationAdvancePage.selectQuantity("1");
         Thread.sleep(2000);
     }
 
@@ -232,10 +232,12 @@ public class NdosiTests extends Base {
         webAutomationAdvancePage.clickViewInvoiceButton();
         Thread.sleep(3000);
     }
-//    @Test(dependsOnMethods = "clickViewInvoiceButtonTest")
-//    public void clickActualViewInvoiceTest(){
-//        webAutomationAdvancePage.clickActualViewInvoice();
-//    }
+    @Test(dependsOnMethods = "clickViewInvoiceButtonTest")
+    public void clickCloseInvoiceHistoryTest() throws InterruptedException {
+        webAutomationAdvancePage.clickCloseInvoiceHistory();
+        Thread.sleep(3000);
+    }
+
     @AfterTest
     public void closeBrowser() {
         driver.quit();
