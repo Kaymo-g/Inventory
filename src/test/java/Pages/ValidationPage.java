@@ -64,6 +64,10 @@ public class ValidationPage {
     @FindBy(id = "review-cart-btn")
     WebElement reviewCartButton_id;
 
+    @FindBy(id = "cart-item-remove-1763438796770.5173")
+    WebElement removeItemButton_id;
+
+
 
     public ValidationPage(WebDriver driver) {
         this.driver = driver;
@@ -144,5 +148,8 @@ public class ValidationPage {
 
     public void clickReviewCartButton() {
         reviewCartButton_id.click();
+    }
+    public void clickRemoveItemButton() {
+        removeItemButton_id.click();
     }
 }

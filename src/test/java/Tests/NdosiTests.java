@@ -395,8 +395,9 @@ public class NdosiTests extends Base {
     }
 
     @Test(dependsOnMethods = "clickNextButtonValidationSecondItemTest")
-    public void selectShippingStandardValidationSecondItemTest() {
+    public void selectShippingStandardValidationSecondItemTest() throws InterruptedException {
         validationPage.selectShippingStandard();
+        Thread.sleep(2000);
     }
 
     @Test(dependsOnMethods = "selectShippingStandardValidationSecondItemTest")
@@ -406,9 +407,27 @@ public class NdosiTests extends Base {
 
     @Test(dependsOnMethods = "selectWarrantyNoneValidationTest")
     public void enterDiscountCodeValidationSecondItemTest() {
-        webAutomationAdvancePage.enterDiscountCode(" ");
+        validationPage.enterDiscountCode(" ");
 
     }
+
+    @Test(dependsOnMethods = "enterDiscountCodeValidationSecondItemTest")
+    public void clickAddToCartButtonValidationSecondItemTest() throws InterruptedException {
+        validationPage.clickAddToCartButton();
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "clickAddToCartButtonValidationSecondItemTest")
+    public void clickReviewCartButtonValidationTest(){
+        validationPage.clickReviewCartButton();
+    }
+
+//    @Test(dependsOnMethods = "clickReviewCartButtonValidationTest")
+//    public void clickRemoveItemButtonValidationTest() throws InterruptedException {
+//        validationPage.clickRemoveItemButton();
+//        Thread.sleep(2000);
+//    }
+
     @AfterTest
     public void closeBrowser() {
         driver.quit();
