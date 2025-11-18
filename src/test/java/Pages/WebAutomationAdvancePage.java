@@ -155,6 +155,7 @@ public class WebAutomationAdvancePage {
     }
 
     public void enterDiscountCode(String discountCode) {
+        discountCode_id.clear();
         discountCode_id.sendKeys(discountCode);
     }
 

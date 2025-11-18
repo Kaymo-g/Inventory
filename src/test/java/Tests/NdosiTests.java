@@ -299,6 +299,56 @@ public class NdosiTests extends Base {
         validationPage.clickNextButton();
         Thread.sleep(4000);
     }
+    @Test(dependsOnMethods = "clickNextButtonValidationCorrectTest")
+    public void selectShippingExpressValidationTest() {
+        validationPage.selectShippingExpress();
+    }
+
+    @Test(dependsOnMethods = "selectShippingExpressValidationTest")
+    public void selectWarrantyValidationTest() {
+        validationPage.selectWarranty();
+    }
+
+    @Test(dependsOnMethods = "selectWarrantyValidationTest")
+    public void enterDiscountCodeValidationTest() {
+        validationPage.enterDiscountCode("SAVE10");
+    }
+
+    @Test(dependsOnMethods = "enterDiscountCodeValidationTest")
+    public void clickApplyDiscountValidationTest() throws InterruptedException {
+        validationPage.clickApplyDiscount();
+        Thread.sleep(1000);
+    }
+
+    @Test(dependsOnMethods = "clickApplyDiscountValidationTest")
+    public void enterDiscountCode20ValidationTest() {
+        validationPage.enterDiscountCode("SAVE20");
+    }
+
+    @Test(dependsOnMethods = "enterDiscountCode20ValidationTest")
+    public void clickApplyDiscount20ValidationTest() throws InterruptedException {
+        validationPage.clickApplyDiscount();
+        Thread.sleep(1000);
+    }
+    @Test(dependsOnMethods = "clickApplyDiscount20ValidationTest")
+    public void enterDiscountCodeInvalidTest() {
+        validationPage.enterDiscountCode("SAVE25");
+    }
+    @Test(dependsOnMethods = "enterDiscountCodeInvalidTest")
+    public void clickApplyDiscountInvalidTest() throws InterruptedException {
+        validationPage.clickApplyDiscount();
+        Thread.sleep(1000);
+    }
+    @Test(dependsOnMethods = "clickApplyDiscountInvalidTest")
+    public void enterDiscountCodeNoDiscountTest() {
+        validationPage.enterDiscountCode(" ");
+    }
+
+    @Test(dependsOnMethods = "enterDiscountCodeNoDiscountTest")
+    public void clickApplyDiscountNoDiscountTest() throws InterruptedException {
+        validationPage.clickApplyDiscount();
+        Thread.sleep(1000);
+    }
 
     @AfterTest
     public void closeBrowser() {

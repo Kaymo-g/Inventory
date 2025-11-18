@@ -37,6 +37,25 @@ public class ValidationPage {
     @FindBy(id = "inventory-next-btn")
     WebElement nextButton_id;
 
+    @FindBy(id = "shipping-express")
+    WebElement shippingExpress_id;
+
+    @FindBy(id = "shipping-standard")
+    WebElement shippingStandard_id;
+
+    @FindBy(id = "warranty-none")
+    WebElement warrantyNone_id;
+
+    @FindBy(id = "warranty-1yr")
+    WebElement warranty_id;
+
+    @FindBy(id = "discount-code")
+    WebElement discountCode_id;
+
+    @FindBy(id = "apply-discount-btn")
+    WebElement applyDiscount_id;
+
+
     public ValidationPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -82,6 +101,29 @@ public class ValidationPage {
     public void clickNextButton() {
         nextButton_id.click();
     }
+    public void selectShippingExpress() {
+        shippingExpress_id.click();
+    }
 
+    public void selectShippingStandard() {
+        shippingStandard_id.click();
+    }
+
+    public void selectWarranty() {
+        warranty_id.click();
+    }
+
+    public void selectWarrantyNone() {
+        warrantyNone_id.click();
+    }
+
+    public void enterDiscountCode(String discountCode) {
+        discountCode_id.clear();
+        discountCode_id.sendKeys(discountCode);
+    }
+
+    public void clickApplyDiscount() {
+        applyDiscount_id.click();
+    }
 
 }
