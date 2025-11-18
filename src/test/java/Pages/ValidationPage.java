@@ -28,6 +28,9 @@ public class ValidationPage {
     @FindBy(id = "storage-128GB")
     WebElement storage128_id;
 
+    @FindBy(id = "storage-256GB")
+    WebElement storage256_id;
+
     @FindBy(id = "quantity")
     WebElement quantity_id;
 
@@ -54,6 +57,12 @@ public class ValidationPage {
 
     @FindBy(id = "apply-discount-btn")
     WebElement applyDiscount_id;
+
+    @FindBy(id = "add-to-cart-btn")
+    WebElement addToCartButton_id;
+
+    @FindBy(id = "review-cart-btn")
+    WebElement reviewCartButton_id;
 
 
     public ValidationPage(WebDriver driver) {
@@ -87,6 +96,10 @@ public class ValidationPage {
     public void selectStorage128() {
 
         storage128_id.click();
+    }
+    public void selectStorage256() {
+
+        storage256_id.click();
     }
 
     public void selectQuantity(String quantity) {
@@ -125,5 +138,11 @@ public class ValidationPage {
     public void clickApplyDiscount() {
         applyDiscount_id.click();
     }
+    public void clickAddToCartButton() {
+        addToCartButton_id.click();
+    }
 
+    public void clickReviewCartButton() {
+        reviewCartButton_id.click();
+    }
 }

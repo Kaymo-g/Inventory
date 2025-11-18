@@ -216,7 +216,7 @@ public class NdosiTests extends Base {
     @Test(dependsOnMethods = "clickApplyDiscountSecondItemTest")
     public void clickAddToCartButtonSecondItemTest() throws InterruptedException {
         webAutomationAdvancePage.clickAddToCartButton();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
     }
 
     @Test(dependsOnMethods = "clickAddToCartButtonSecondItemTest")
@@ -291,7 +291,7 @@ public class NdosiTests extends Base {
 
     @Test(dependsOnMethods = "clickNextButtonValidation11Test")
     public void selectQuantityValidationCorrectTest() throws InterruptedException {
-        validationPage.selectQuantity("3");
+        validationPage.selectQuantity("2");
         Thread.sleep(4000);
     }
     @Test(dependsOnMethods = "selectQuantityValidationCorrectTest")
@@ -349,7 +349,66 @@ public class NdosiTests extends Base {
         validationPage.clickApplyDiscount();
         Thread.sleep(1000);
     }
+    @Test(dependsOnMethods = "clickApplyDiscountNoDiscountTest")
+    public void clickAddToCartButtonValidationTest() throws InterruptedException {
+        validationPage.clickAddToCartButton();
+        Thread.sleep(2000);
+    }
+    @Test(dependsOnMethods = "clickAddToCartButtonValidationTest")
+    public void selectDeviceTypeValidationSecondItemTest() throws InterruptedException {
+        validationPage.selectDeviceType("laptop");
+        Thread.sleep(2000);
+    }
 
+    @Test(dependsOnMethods = "selectDeviceTypeValidationSecondItemTest")
+    public void selectBrandValidationSecondItemTest() throws InterruptedException {
+        validationPage.selectLaptopBrand("macbook pro");
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "selectBrandValidationSecondItemTest")
+    public void selectStorage256ValidationSecondItemTest() {
+        validationPage.selectStorage256();
+    }
+
+    @Test(dependsOnMethods = "selectStorage256ValidationSecondItemTest")
+    public void selectColorValidationSecondItemTest() throws InterruptedException {
+        validationPage.selectColor("white");
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "selectColorValidationSecondItemTest")
+    public void selectQuantityValidationSecondItemTest() throws InterruptedException {
+        validationPage.selectQuantity("1");
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "selectQuantityValidationSecondItemTest")
+    public void enterDeliveryAddressValidationSecondItemTest() {
+        validationPage.enterDeliveryAddress("27 Parklands Main, Cape Town");
+    }
+
+    @Test(dependsOnMethods = "enterDeliveryAddressValidationSecondItemTest")
+    public void clickNextButtonValidationSecondItemTest() throws InterruptedException {
+        validationPage.clickNextButton();
+        Thread.sleep(2000);
+    }
+
+    @Test(dependsOnMethods = "clickNextButtonValidationSecondItemTest")
+    public void selectShippingStandardValidationSecondItemTest() {
+        validationPage.selectShippingStandard();
+    }
+
+    @Test(dependsOnMethods = "selectShippingStandardValidationSecondItemTest")
+    public void selectWarrantyNoneValidationTest() {
+        validationPage.selectWarrantyNone();
+    }
+
+    @Test(dependsOnMethods = "selectWarrantyNoneValidationTest")
+    public void enterDiscountCodeValidationSecondItemTest() {
+        webAutomationAdvancePage.enterDiscountCode(" ");
+
+    }
     @AfterTest
     public void closeBrowser() {
         driver.quit();
